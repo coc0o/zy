@@ -20,6 +20,8 @@ export agk=${agk}
 export ippz=${ippz}
 export warp=${warp}
 export name=${name}
+# [新增] 自动注入定时重启任务 (北京时间凌晨4点 / UTC 20点杀掉主进程触发重启)
+grep -q "kill 1" /etc/crontabs/root 2>/dev/null || echo "0 20 * * * kill 1" >> /etc/crontabs/root
 v46url="https://icanhazip.com"
 showmode(){
 echo "Argosbx脚本项目地址：https://github.com/yonggekkk/argosbx"
